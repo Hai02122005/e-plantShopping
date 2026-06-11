@@ -23,3 +23,15 @@ decrementQuantity
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+updateQuantity: (state, action) => {
+const { id, quantity } = action.payload;
+
+const item = state.cartItems.find(
+item => item.id === id
+);
+
+if (item) {
+item.quantity = quantity;
+}
+}
