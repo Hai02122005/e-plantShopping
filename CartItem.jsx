@@ -1,33 +1,63 @@
-function CartItem() {
-return (
-
-Shopping Cart
-
-  <div>
-    <img src="" alt="" />
-    <h3>Plant Name</h3>
-    <p>Unit Price: $20</p>
-    <p>Total Cost: $40</p>
-
-    <button>-</button>
-    <span>2</span>
-    <button>+</button>
-
-    <button>Delete</button>
-  </div>
-
-  <h2>Total Amount: $40</h2>
-
-  <button>Continue Shopping</button>
-
-  <button
-    onClick={() => alert("Coming Soon")}
-  >
-    Checkout
-  </button>
-</div>
-
+const totalAmount = cartItems.reduce(
+(sum, item) => sum + item.price * item.quantity,
+0
 );
-}
 
-export default CartItem;
+{cartItems.map((item) => (
+
+  <div key={item.id}>
+
+```
+<img src={item.image} alt={item.name} />
+
+<h3>{item.name}</h3>
+
+<p>Unit Price: ${item.price}</p>
+
+<p>
+  Total Cost:
+  ${item.price * item.quantity}
+</p>
+
+<button
+  onClick={() =>
+    dispatch(decrementQuantity(item.id))
+  }
+>
+  -
+</button>
+
+<span>{item.quantity}</span>
+
+<button
+  onClick={() =>
+    dispatch(incrementQuantity(item.id))
+  }
+>
+  +
+</button>
+
+<button
+  onClick={() =>
+    dispatch(removeItem(item.id))
+  }
+>
+  Delete
+</button>
+```
+
+  </div>
+))}
+
+<h2>Total Amount: ${totalAmount}</h2>
+
+<Link to="/products">
+  Continue Shopping
+</Link>
+
+<button
+onClick={() => alert("Coming Soon")}
+
+>
+
+Checkout </button>
