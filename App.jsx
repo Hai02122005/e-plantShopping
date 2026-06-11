@@ -1,19 +1,27 @@
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import ProductList from "./ProductList";
 
 function App() {
-return (
+const [showProducts, setShowProducts] = useState(false);
 
+if (showProducts) {
+return <ProductList />;
+}
 
-Paradise Nursery
-Your Online House Plant Store
+return ( <div className="landing-page"> <h1>Welcome to Paradise Nursery</h1>
 
-    <Link to="/products">
-      <button className="get-started-btn">
-        Get Started
-      </button>
-    </Link>
-  </div>
+```
+  <p>
+    Discover beautiful indoor plants for your home.
+  </p>
+
+  <button
+    onClick={() => setShowProducts(true)}
+  >
+    Get Started
+  </button>
 </div>
+```
 
 );
 }
