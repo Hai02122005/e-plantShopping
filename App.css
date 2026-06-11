@@ -1,0 +1,21 @@
+.landing-page {
+background-image: url("./assets/nursery.jpg");
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.landing-content {
+text-align: center;
+color: white;
+}
+
+.get-started-btn {
+padding: 12px 24px;
+font-size: 18px;
+cursor: pointer;
+}
